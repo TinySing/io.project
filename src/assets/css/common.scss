@@ -1,0 +1,119 @@
+@charset "utf-8";
+@import './variables.scss';
+@import '@/element/element.scss';
+@mixin scrollbar {
+  max-height: 88vh;
+  margin-bottom: 0.5vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(144, 147, 153, 0.3);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(144, 147, 153, 0.3);
+  }
+}
+
+@mixin base-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    border-radius: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track:hover {
+    background-color: #f8fafc;
+  }
+}
+
+//火狐浏览器滚动条兼容
+.aside-box {
+  scrollbar-color: rgba(0, 0, 0, 0.4) #eee; //滚动条轨道颜色   滚动条滑块的颜色
+  scrollbar-width: thin; //thin模式下滚动条两端的三角按钮会消失
+}
+
+//谷歌浏览器滚动条兼容
+.aside-box::-webkit-scrollbar {
+  //滚动条整体部分
+  width: 10px;
+  height: 10px;
+  background-color: #eee;
+}
+
+.aside-box::-webkit-scrollbar-track {
+  //滚动条的轨道（里面装有Thumb）
+  background-color: transparent;
+}
+
+.aside-box::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4); //滚动条里面的小方块
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 7px;
+}
+
+// 设置浏览器滚动条样式
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  display: block;
+  min-width: 8px;
+  min-height: 12px;
+  background-color: rgb(217, 217, 217);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  display: block;
+  min-width: 8px;
+  min-height: 12px;
+  background-color: rgb(159, 159, 159);
+  border-radius: 6px;
+}
+
+// 设置浏览器滚动条样式
+
+//::-webkit-scrollbar-button 滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。
+//::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分（除去）
+//::-webkit-scrollbar-corner 边角，即两个滚动条的交汇处的小方块
+//::-webkit-resizer 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
+
+body {
+  position: relative;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: $base-font-size-default;
+  background: rgba(244, 244, 244, 1);
+  @include base-scrollbar;
+
+  div {
+    @include base-scrollbar;
+  }
+}

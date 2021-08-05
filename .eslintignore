@@ -1,0 +1,9 @@
+/lambda/
+/scripts
+/config
+.history
+public
+dist
+_mock.js
+_mock.ts
+mock

@@ -1,0 +1,52 @@
+{
+  "name": "demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --mdoe development",
+    "build": "vue-cli-service build --mode production",
+    "test": "vue-cli-service build --mode test",
+    "prettier": "prettier -c --write \"src/**/*\"",
+    "lint": "vue-cli-service lint",
+    "lint:fix": "eslint --fix --ext .js",
+    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+    "lint:prettier": "prettier --check \"src/**/*\" --end-of-line auto",
+    "lint:style": "stylelint --fix \"src/**/*.scss\" --syntax scss"
+  },
+  "gitHooks": {
+    "pre-commit": "pretty-quick --staged ",
+    "commit-msg": "node ./node_modules/snb-fabric/dist/verifyCommit.js"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.14.1",
+    "js-cookie": "^2.2.1",
+    "qs": "^6.9.4",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "lint-staged": "^11.0.0",
+    "pretty-quick": "^3.1.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "snb-fabric": "^2.2.1",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
